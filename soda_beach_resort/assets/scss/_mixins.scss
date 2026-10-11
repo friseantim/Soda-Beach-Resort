@@ -1,0 +1,55 @@
+
+@use "variables" as v;
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin card {
+  background: v.$color-white;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-card;
+  padding: 24px;
+  box-shadow: v.$shadow-card;
+}
+
+@mixin button($background: v.$color-ocean, $foreground: white) {
+  display: inline-block;
+  border: 0;
+  border-radius: v.$radius-small;
+  background: $background;
+  color: $foreground;
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: v.$color-ocean-dark;
+    text-decoration: none;
+  }
+}
+
+@mixin form-control {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #bdccca;
+  border-radius: v.$radius-small;
+  font: inherit;
+  background: v.$color-white;
+
+  &:focus {
+    outline: 2px solid #8bd0d2;
+    border-color: v.$color-ocean;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: v.$breakpoint-mobile) {
+    @content;
+  }
+}
